@@ -16,7 +16,7 @@
     <location>/ErrorHandler</location>
   </error-page>
   <context-param>
-  	<param-name>userFilePath</param-name>
-  	<param-value>userFiles</param-value>
+    <param-name>userFilePath</param-name>
+    <param-value>userFiles</param-value>
   </context-param>
 </web-app>

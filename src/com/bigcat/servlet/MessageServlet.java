@@ -1,8 +1,6 @@
 package com.bigcat.servlet;
 
 import java.io.IOException;
-import java.util.Enumeration;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -10,16 +8,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class RequestInfoServlet
+ * Servlet implementation class MessageServlet
  */
-@WebServlet("/RequestInfoServlet")
-public class RequestInfoServlet extends HttpServlet {
+@WebServlet("/MessageServlet")
+public class MessageServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public RequestInfoServlet() {
+    public MessageServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -29,15 +27,8 @@ public class RequestInfoServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.setContentType("text/plain");
-		String message = "";
-		String name;
-		Enumeration<String> headerName = request.getAttributeNames();
-		while (headerName.hasMoreElements()) {
-			name = (String) headerName.nextElement();
-			message = String.format("%s\n%s:%s", message, name, request.getAttribute(name));
-		}
-		response.getWriter().println(message.substring(1));
+		String message = (String) request.getAttribute("message");
+		response.getWriter().append("<h1>").append(message).append("</h1>");
 	}
 
 	/**
